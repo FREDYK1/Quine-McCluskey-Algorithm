@@ -84,6 +84,11 @@ def quine_mccluskey(minterms, num_vars):
     return essential_prime_implicants
 
 
+# Example usage
+minterms = [0, 1, 2, 5, 6, 7, 8, 9, 10, 14]
+num_vars = 4
+result = quine_mccluskey(minterms, num_vars)
+print("Essential Prime Implicants:", result)
 
 # minterms = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 # # num_vars = 4
