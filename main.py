@@ -76,6 +76,13 @@ def get_essential_prime_implicants(prime_implicants, minterms):
 
     return essential_prime_implicants
 
+def quine_mccluskey(minterms, num_vars):
+    # Find all prime implicants
+    prime_implicants = find_prime_implicants(minterms, num_vars)
+    # Find essential prime implicants from the prime implicants
+    essential_prime_implicants = get_essential_prime_implicants(prime_implicants, minterms)
+    return essential_prime_implicants
+
 
 
 # minterms = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
