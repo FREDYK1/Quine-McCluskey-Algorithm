@@ -59,6 +59,25 @@ def find_prime_implicants(minterms, num_vars):
         groups = new_groups
     return prime_implicants
 
+
+def get_essential_prime_implicants(prime_implicants, minterms):
+    # Create a coverage map of minterms to prime implicants
+    coverage = {minterm: [] for minterm in minterms}
+    for implicant in prime_implicants:
+        for minterm in minterms:
+            binary = decimal_to_binary(minterm, len(implicant))
+            if all(bit1 == bit2 or bit1 == '-' for bit1, bit2 in zip(implicant, binary)):
+                coverage[minterm].append(implicant)
+
+    essential_prime_implicants = set()
+    for minterm, implicants in coverage.items():
+        if len(implicants) == 1:
+            get_essential_prime_implicants.add(implicants[0])
+
+    return essential_prime_implicants
+
+
+
 # minterms = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 # # num_vars = 4
 # # result = quine_mccluskey(minterms, num_vars)
