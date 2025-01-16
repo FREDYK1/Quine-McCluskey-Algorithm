@@ -1,4 +1,3 @@
-
 def decimal_to_binary(number, num_vars):
     return bin(number)[2:].zfill(num_vars)
 
@@ -85,12 +84,3 @@ def binary_to_sop(binary):
 def minimized_sop(essential_prime_implicants):
     return ' + '.join(binary_to_sop(implicant) for implicant in essential_prime_implicants)
 
-# Example usage
-
-minterms = [0, 1, 2, 5, 6, 7, 8, 9, 10, 14]
-dont_cares = [4, 15]
-num_vars = 4
-essential_prime_implicants = quine_mccluskey(minterms, dont_cares, num_vars)
-sop = minimized_sop(essential_prime_implicants)
-print("Essential Prime Implicants:", essential_prime_implicants)
-print("Minimized SOP:", sop)
